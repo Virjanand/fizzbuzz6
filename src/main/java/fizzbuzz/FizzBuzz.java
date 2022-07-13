@@ -12,14 +12,17 @@ public class FizzBuzz {
                 return "Fizz";
             }
             return "";
+        }, number1 -> {
+            if (number1 % 5 == 0) {
+                return "Buzz";
+            }
+            return "";
         })).collect(Collectors.toList());
     }
 
-    private String toFizzBuzz(int number, Function<Integer, String> fizzRule) {
+    private String toFizzBuzz(int number, Function<Integer, String> fizzRule, Function<Integer, String> buzzRule) {
         String result = fizzRule.apply(number);
-        if (number % 5 == 0) {
-            result += "Buzz";
-        }
+        result += buzzRule.apply(number);
         if (result.isEmpty()) {
             return Integer.toString(number);
         }
