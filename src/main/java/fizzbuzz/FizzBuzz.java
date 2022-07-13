@@ -11,13 +11,18 @@ public class FizzBuzz {
 
     private String toFizzBuzz(int number) {
         String result = applyFizzRule(number);
-        if (number % 5 == 0) {
-            result += "Buzz";
-        }
+        result += applyBuzzRule(number, result);
         if (result.isEmpty()) {
             return Integer.toString(number);
         }
         return result;
+    }
+
+    private String applyBuzzRule(int number, String result) {
+        if (number % 5 == 0) {
+            return "Buzz";
+        }
+        return "";
     }
 
     private String applyFizzRule(int number) {
