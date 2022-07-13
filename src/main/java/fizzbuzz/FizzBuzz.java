@@ -10,10 +10,7 @@ public class FizzBuzz {
     }
 
     private String toFizzBuzz(int number) {
-            String result = "";
-        if (number % 3 == 0) {
-            result = "Fizz";
-        }
+        String result = applyFizzRule(number);
         if (number % 5 == 0) {
             result += "Buzz";
         }
@@ -21,5 +18,12 @@ public class FizzBuzz {
             return Integer.toString(number);
         }
         return result;
+    }
+
+    private String applyFizzRule(int number) {
+        if (number % 3 == 0) {
+            return "Fizz";
+        }
+        return "";
     }
 }
